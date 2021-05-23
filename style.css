@@ -1,0 +1,94 @@
+html{
+  background: #018DED url(./background.jpg);
+  background-size:cover;
+  font-family:'helvetica neue';
+  /* text-align: center; */
+  font-size: 10px;
+}
+
+body{
+  font-size: 2rem;
+  display:flex;
+/*   flex:1; */
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock{
+  width: 30rem;
+  height: 30rem;
+  padding:2rem;
+  border: 20px solid white;
+  border-radius: 50%;
+  box-shadow: 
+  0 0 0 4px rgba(0,0,0,0.1),
+  0 0 10px rgba(0,0,0,0.2),
+  inset 0 0 0 3px #EFEFEF,
+  inset 0 0 10px black;
+  position: relative;
+}
+
+.clock-face{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* transform: translateY(-3px); *//* account for the height of the clock hands */
+}
+
+/* 表的原点 */
+.clock-face::after{
+  content: '';
+  /* before和after创建一个元素，但是属于行内元素*/
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #a8c5d1;
+  box-shadow:
+                0 0 0 2px rgba(0,0,0,0.1),
+                0 0 10px rgba(0,0,0,0.2);
+  /* 走过去了走回来 */
+  transform: translate(-50%, -50%);
+}
+
+.hand{
+  width: 50%;
+  background:#fff;
+  height: 6px;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  box-shadow:
+                0 0 0 .1px #fff,
+                0 0 0 1px rgba(0,0,0,0.1),
+                0 0 8px rgba(0,0,0,0.4),
+                2px 5px 1px rgba(0, 0, 0, .5);
+  /* 设置装换中心点 transform-origin: x y;
+     默认转换中心点是元素中心点（50%，50%）
+  */
+  transform-origin: 100% 50%;              
+}
+.hour-hand{
+  width: 40%;
+  height:10px;
+  margin-top: -5px;
+  border-bottom-left-radius: .5em;
+  border-top-left-radius: .5em;
+}
+.min-hand{
+  width: 45%;
+  height:5px;
+  margin-top: -2.5px;
+}
+.second-hand{
+  height: 2px;
+  margin-top: -1px;
+  background-color: red;
+  /* 制造出秒针的尖尖 */
+  border-bottom-left-radius: 100%;
+  border-top-left-radius: 100%;
+}
